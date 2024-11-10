@@ -1,3 +1,5 @@
+const myLibrary = [];
+
 function Book (title, author, pages, haveRead) {
     title = title;
     author = author;
@@ -9,3 +11,9 @@ function Book (title, author, pages, haveRead) {
                     Read: ${this.haveRead? 'Yes' : 'No'}`;
     }
 };
+
+function addBook(title, author, pages) {
+    const newBook = new Book(title, author, pages, false);
+    myLibrary.push(newBook);
+};
+
