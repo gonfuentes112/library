@@ -147,6 +147,10 @@ main {
   z-index: 2;
 }
 
+::backdrop {
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
 .newBookForm {
   display: flex;
   flex-direction: column;
