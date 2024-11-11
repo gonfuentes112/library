@@ -51,7 +51,6 @@ main {
     z-index: 2;
     overflow: auto;
     scrollbar-color: #b94b20 #563232;
-    display:none;
   }
 
 .book{
@@ -135,6 +134,17 @@ main {
   
 .readLabel:hover {
   background-color: #966F33;
+}
+
+.newButton {
+  background-color: #966F33;
+  align-self: flex-end;
+  width: 10%;
+  padding: 0.5rem;
+  margin-right: 5%;
+  border-color: #966F33;
+  border-radius: 0.3125rem;
+  z-index: 2;
 }
 
 .newBookForm {
