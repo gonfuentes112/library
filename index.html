@@ -15,29 +15,33 @@
         <h1>myLibrary</h1>
     </div>
     <dialog class="newBookDialog" id="newBookDialog">
-        <form class="newBookForm">
-            <p class="newBookFormField">
-              <label for="new-book-title">Enter the title: (required) </label>
-              <input type="text" id="new-book-title" name="new-book-title" required autofocus>                  
-            </p>
-            <p class="newBookFormField">
-                <label for="new-book-author">Enter the author: </label>
-                <input type="text" id="new-book-author" name="new-book-author">                  
-            </p>
-            <p class="newBookFormField">
-                <label for="new-book-pages">Enter the number of pages: </label>
-                <input type="number" id="new-book-pages" name="new-book-pages" inputmode="numeric" pattern="\d*" placeholder="123">                  
-            </p>
-              <p class="newBookFormField">
-                Have you already read it?
-                <span class="radio-buttons">
-                    <label for="already-read-yes">Yes</label>
-                    <input type="radio" id="already-read-yes" name="already-read" value="yes">
-                    <label for="already-read-no">No</label>
-                    <input type="radio" id="already-read-no" name="already-read" value="no" checked>                                      
-                </span>
-            </p>
-        </form>
+        <div class="dialog-container">
+            <button type="button" id="close-dialog">X</button>
+            <form class="newBookForm">
+                <p class="newBookFormField">
+                  <label for="new-book-title">Enter the title: (required) </label>
+                  <input type="text" id="new-book-title" name="new-book-title" required autofocus>                  
+                </p>
+                <p class="newBookFormField">
+                    <label for="new-book-author">Enter the author: </label>
+                    <input type="text" id="new-book-author" name="new-book-author">                  
+                </p>
+                <p class="newBookFormField">
+                    <label for="new-book-pages">Enter the number of pages: </label>
+                    <input type="number" id="new-book-pages" name="new-book-pages" inputmode="numeric" pattern="\d*" placeholder="123">                  
+                </p>
+                  <p class="newBookFormField">
+                    Have you already read it?
+                    <span class="radio-buttons">
+                        <label for="already-read-yes">Yes</label>
+                        <input type="radio" id="already-read-yes" name="already-read" value="yes">
+                        <label for="already-read-no">No</label>
+                        <input type="radio" id="already-read-no" name="already-read" value="no" checked>                                      
+                    </span>
+                </p>
+            </form>
+        </div>
+
     </dialog>
     <button type="button" id="new-button">Add New Book
     </button>

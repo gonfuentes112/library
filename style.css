@@ -156,6 +156,28 @@ dialog {
   margin: auto;
   border-radius: 0.5rem;
   background-color: #da6d42;
+  padding: 0;
+}
+
+.dialog-container {
+  display: flex;
+  flex-direction: column;
+}
+
+#close-dialog {
+  color: #563232;
+  background-color: #966F33;
+  border-color: #966F33;
+  border-radius: 0.5rem;
+  align-self: flex-end;
+  width: 1.5rem;
+  height: 1.5rem;
+  margin-top: 0.25rem;
+  margin-right: 0.25rem;
+}
+
+.newBookForm {
+  padding: 0.5rem;
 }
 
 .newBookFormField input {

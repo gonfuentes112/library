@@ -4,10 +4,16 @@ let bookID = 0;
 const bookDisplay = document.getElementById('book-display');
 const newButton = document.getElementById('new-button');
 const newDialog = document.getElementById('newBookDialog');
+const closeDialog = document.getElementById('close-dialog');
 
 newButton.addEventListener('click', () => {
     newDialog.showModal();
 })
+
+closeDialog.addEventListener('click', () => {
+    newDialog.close();
+}
+)
 
 function Book (title, author, pages, haveRead) {
     this.id = bookID;
