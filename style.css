@@ -152,6 +152,42 @@ main {
   background-color: rgba(0, 0, 0, 0.7);
 }
 
+dialog {
+  margin: auto;
+  border-radius: 0.5rem;
+  background-color: #da6d42;
+}
+
+.newBookFormField input {
+  border-radius: 0.5rem;
+  background-color: #966F33;
+  border-color: #563232;
+}
+
+input:user-invalid {
+  border-color: red;
+}
+
+input:focus-visible{
+  outline: #da6d42;
+  box-shadow: 1px 1px 5px;
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
+
+::placeholder {
+  color: #444;
+}
+
 .newBookForm {
   display: flex;
   flex-direction: column;
