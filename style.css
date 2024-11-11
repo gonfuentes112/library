@@ -136,7 +136,7 @@ main {
   background-color: #966F33;
 }
 
-.newButton {
+#new-button {
   background-color: #966F33;
   align-self: flex-end;
   width: 10%;

@@ -1,6 +1,14 @@
 const myLibrary = [];
 let bookID = 0;
 
+const bookDisplay = document.getElementById('book-display');
+const newButton = document.getElementById('new-button');
+const newDialog = document.getElementById('newBookDialog');
+
+newButton.addEventListener('click', () => {
+    newDialog.showModal();
+})
+
 function Book (title, author, pages, haveRead) {
     this.id = bookID;
     bookID+= 1;
@@ -41,7 +49,7 @@ function createBookChildren(book) {
     return [bookTitle, bookAuthor, bookPages, bookRead];
 }
 
-const bookDisplay = document.getElementById('book-display');
+
 
 function listBooks() {
     myLibrary.forEach((book) => {
