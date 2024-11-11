@@ -1,6 +1,9 @@
 const myLibrary = [];
+let bookID = 0;
 
 function Book (title, author, pages, haveRead) {
+    this.id = bookID;
+    bookID+= 1;
     this.title = title;
     this.author = author;
     this.pages = pages;
@@ -12,10 +15,27 @@ function createBookChildren(book) {
     const bookAuthor = document.createElement('div');
     const bookPages = document.createElement('div');
     const bookRead = document.createElement('div');
+    
     bookTitle.innerText = `"${book.title}"`;
-    bookAuthor.innerText = book.author;
-    bookPages.innerText = book.pages;
-    bookRead.innerText = book.haveRead;
+    bookTitle.classList.add('book-title');
+
+    bookAuthor.innerText = `By: ${book.author}`;
+    bookAuthor.classList.add('book-author');
+
+    bookPages.innerText = `#Pages: ${book.pages}`;
+    bookPages.classList.add('book-pages');
+
+    bookRead.innerText = 'Already read?';
+    const readToggle = document.createElement('input');
+    readToggle.setAttribute('type', 'checkbox');
+    readToggle.setAttribute('id', `book-number-${book.id}`);
+    readToggle.classList.add('book-checkbox');
+    const readToggleLabel = document.createElement('label');
+    readToggleLabel.setAttribute('for', `book-number-${book.id}`);
+
+    bookRead.appendChild(readToggle);
+    bookRead.appendChild(readToggleLabel);
+    bookRead.classList.add('book-have-read');
 
     return [bookTitle, bookAuthor, bookPages, bookRead];
 }
@@ -42,7 +62,13 @@ function addBook(title, author, pages) {
     myLibrary.push(newBook);
 };
 
-addBook("book1", "author1", "pages1");
+addBook("book1withareallylongtitleaaaaaaaaaaaaaaaaaa", "author1", "pages1");
+addBook("book2", "author2", "pages2");
+addBook("book3", "author3", "pages3");
+addBook("book1withareallylongtitleaaaaaaaaaaaaaaaaaa", "author1", "pages1");
+addBook("book2", "author2", "pages2");
+addBook("book3", "author3", "pages3");
+addBook("book1withareallylongtitleaaaaaaaaaaaaaaaaaa", "author1", "pages1");
 addBook("book2", "author2", "pages2");
 addBook("book3", "author3", "pages3");
 
