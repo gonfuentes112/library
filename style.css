@@ -51,6 +51,7 @@ main {
     z-index: 2;
     overflow: auto;
     scrollbar-color: #b94b20 #563232;
+    display:none;
   }
 
 .book{
@@ -105,7 +106,7 @@ main {
     display: none;
 }
 
-label {
+.readLabel {
     display: inline-block;
     width: 2rem;
     height: 2rem;
@@ -116,12 +117,12 @@ label {
     transition: background-color 0.3s, border-color 0.3s;
   }
   
-.book-checkbox:checked + label {
+.book-checkbox:checked + .readLabel {
     background-color: #966F33;
     border-color: #966F33;
   }
   
-.book-checkbox:checked + label::after {
+.book-checkbox:checked + .readLabel::after {
     content: '✔';
     font-size: 1.2rem;
     color: #563232;
@@ -132,6 +133,32 @@ label {
     height: 0.5rem;
   }
   
-label:hover {
-    background-color: #966F33;
-  }
+.readLabel:hover {
+  background-color: #966F33;
+}
+
+.newBookForm {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.newBookFormField {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.radio-buttons {
+  display: flex;
+  align-items: center;
+  width: 40%;
+}
+
+.radio-buttons label {
+  margin-right: 0.5rem;
+}
+
+.radio-buttons input{
+  margin-right: 1rem;
+}

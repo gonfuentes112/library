@@ -32,6 +32,7 @@ function createBookChildren(book) {
     readToggle.classList.add('book-checkbox');
     const readToggleLabel = document.createElement('label');
     readToggleLabel.setAttribute('for', `book-number-${book.id}`);
+    readToggleLabel.classList.add('readLabel');
 
     bookRead.appendChild(readToggle);
     bookRead.appendChild(readToggleLabel);
