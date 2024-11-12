@@ -16,7 +16,7 @@
     </div>
     <dialog class="newBookDialog" id="newBookDialog">
         <div class="dialog-container">
-            <button type="button" id="close-dialog">X</button>
+            <button type="submit" id="close-dialog" formnovalidate>X</button>
             <form class="newBookForm">
                 <p class="newBookFormField">
                   <label for="new-book-title">Enter the title: (required) </label>
@@ -39,11 +39,12 @@
                         <input type="radio" id="already-read-no" name="already-read" value="no" checked>                                      
                     </span>
                 </p>
+            <button id="confirm-submit-button">Create New Book</button>
             </form>
         </div>
 
     </dialog>
-    <button type="button" id="new-button">Add New Book
+    <button type="button" type="submit" id="new-button">Add New Book
     </button>
     <main id="book-display">
     </main>

@@ -145,6 +145,7 @@ main {
   margin-right: 5%;
   border-color: #966F33;
   border-radius: 0.3125rem;
+  font-size: 1.2rem;
   z-index: 2;
 }
 
@@ -234,4 +235,11 @@ input[type="number"] {
 
 .radio-buttons input{
   margin-right: 1rem;
+}
+
+#confirm-submit-button {
+    background-color: #966F33;
+    border-color: #966F33;
+    border-radius: 0.5rem;
+    font-size: 1.5rem;
 }
