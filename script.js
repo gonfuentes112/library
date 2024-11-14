@@ -45,6 +45,22 @@ function removeBook(event) {
     }
 }
 
+function toggleReadInArray(id) {
+    if (id >= 0 && id < myLibrary.length) {
+        myLibrary[id].haveRead = !(myLibrary[id].haveRead);
+    }
+}
+
+function toggleRead(event) {
+    const target = event.target;
+    if (target.classList.contains('readLabel')) {
+        const bookId = event.currentTarget.dataset.bookId;
+        toggleReadInArray(bookId);
+    }    
+}
+
+
+
 function createBookChildren(book) {
     const bookTitle = document.createElement('div');
     const bookAuthor = document.createElement('div');
@@ -101,6 +117,7 @@ function createNewEntry(book) {
     }
 
     bookEntry.addEventListener('click', removeBook);
+    bookEntry.addEventListener('click', toggleRead);
 }
 
 function listBooks() {
