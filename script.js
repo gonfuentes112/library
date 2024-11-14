@@ -30,11 +30,28 @@ function Book (title, author, pages, haveRead) {
     this.haveRead = haveRead;
 };
 
+function removeBookFromArray(id) {
+    if (id >= 0 && id < myLibrary.length) {
+        myLibrary[id] = null;
+    }
+}
+
+function removeBook(event) {
+    const target = event.target;
+    if (target.classList.contains('book-remove-button')) {
+        const bookId = event.currentTarget.dataset.bookId;
+        removeBookFromArray(bookId);
+        event.currentTarget.remove();
+    }
+}
+
 function createBookChildren(book) {
     const bookTitle = document.createElement('div');
     const bookAuthor = document.createElement('div');
     const bookPages = document.createElement('div');
     const bookRead = document.createElement('div');
+    const bookRemove = document.createElement('div');
+    const bookRemoveButton = document.createElement('button');
     
     bookTitle.innerText = `"${book.title}"`;
     bookTitle.classList.add('book-title');
@@ -58,7 +75,13 @@ function createBookChildren(book) {
     bookRead.appendChild(readToggleLabel);
     bookRead.classList.add('book-have-read');
 
-    return [bookTitle, bookAuthor, bookPages, bookRead];
+
+    bookRemoveButton.innerText = "Remove";
+    bookRemoveButton.classList.add('book-remove-button');
+    bookRemove.classList.add('book-remove');
+    bookRemove.appendChild(bookRemoveButton);
+
+    return [bookTitle, bookAuthor, bookPages, bookRead, bookRemove];
 }
 
 function createNewEntry(book) {
@@ -74,8 +97,10 @@ function createNewEntry(book) {
     const newCheckbox = bookChildren[3].querySelector('.book-checkbox');
     if (book.haveRead) {
         newCheckbox.checked = true;
-        newCheckbox.dispatchEvent(new Event('change'));
+        newCheckbox.dispatchEvent(new Event('change')); //manually trigger CSS change to modify style
     }
+
+    bookEntry.addEventListener('click', removeBook);
 }
 
 function listBooks() {

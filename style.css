@@ -57,7 +57,7 @@ main {
     background-color: #da6d42;
     border-radius: 0.3125rem;
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(6, 1fr);
     grid-template-rows: repeat(2, 1fr);
     border: 0.2rem double #563232;
   }
@@ -135,6 +135,25 @@ main {
   
 .readLabel:hover {
   background-color: #966F33;
+}
+
+.book-remove {
+    grid-row: 1 / span 2;
+    grid-column: 6;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    border-left: 0.2rem double #563232;
+}
+
+.book-remove-button {
+    background-color: #966F33;
+    border-color: #966F33;
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+    font-size: 1.2rem;
 }
 
 #new-button {
