@@ -64,6 +64,7 @@ function createBookChildren(book) {
 function createNewEntry(book) {
     const bookEntry = document.createElement('div');
     bookEntry.classList.add('book');
+    bookEntry.dataset.bookId = book.id;
 
     const bookChildren = createBookChildren(book);
     bookChildren.forEach((child) => {
