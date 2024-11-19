@@ -21,14 +21,28 @@ closeDialog.addEventListener('click', () => {
 }
 )
 
-function Book (title, author, pages, haveRead) {
-    this.id = bookID;
-    bookID+= 1;
-    this.title = title;
-    this.author = author;
-    this.pages = pages;
-    this.haveRead = haveRead;
-};
+// class MyClass {
+//     // class methods
+//     constructor() { ... }
+//     method1() { ... }
+//     method2() { ... }
+//     method3() { ... }
+//     ...
+//     }
+
+class Book {
+    constructor(title, author, pages, haveRead) {
+        this.id = bookID;
+        bookID++;
+
+        this.title = title;
+        this.author = author;
+        this.pages = pages;
+        this.haveRead = haveRead;
+    }
+    
+
+}
 
 function removeBookFromArray(id) {
     if (id >= 0 && id < myLibrary.length) {
