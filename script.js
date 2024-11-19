@@ -1,6 +1,3 @@
-const myLibrary = [];
-let bookID = 0;
-
 const bookDisplay = document.getElementById('book-display');
 const newButton = document.getElementById('new-button');
 const newDialog = document.getElementById('newBookDialog');
@@ -21,55 +18,70 @@ closeDialog.addEventListener('click', () => {
 }
 )
 
-// class MyClass {
-//     // class methods
-//     constructor() { ... }
-//     method1() { ... }
-//     method2() { ... }
-//     method3() { ... }
-//     ...
-//     }
-
 class Book {
-    constructor(title, author, pages, haveRead) {
+    constructor(bookID, title, author, pages, haveRead) {
         this.id = bookID;
-        bookID++;
-
         this.title = title;
         this.author = author;
         this.pages = pages;
         this.haveRead = haveRead;
-    }
+    }   
+
+}
+
+class Library {
+    constructor() {
+    this.myLibrary = [];
+    this.bookID = 0;
+    };
+
+    listBooks() {
+        this.myLibrary.forEach((book) => {
+            createNewEntry(book);
+            })
+    };
     
+    addBook(title, author, pages, hasRead=false) {
+        const newBook = new Book(this.bookID, title, author, pages, hasRead);
+        this.bookID++;
+        this.myLibrary.push(newBook);
+        return newBook;
+    };
+    removeBookFromArray(id) {
+        if (id >= 0 && id < this.myLibrary.length) {
+            this.myLibrary[id] = null;
+        }
+    };
 
+    toggleReadInArray(id) {
+        if (id >= 0 && id < this.myLibrary.length) {
+            this.myLibrary[id].haveRead = !(myLibrary[id].haveRead);
+        }
+    };
+    
 }
 
-function removeBookFromArray(id) {
-    if (id >= 0 && id < myLibrary.length) {
-        myLibrary[id] = null;
-    }
-}
+const myLibrary = new Library();
+myLibrary.addBook("book1withareallylongtitleaaaaaaaaaaaaaaaaaa", "author1", "pages1");
+myLibrary.addBook("book2", "author2", "pages2");
+myLibrary.addBook("book3", "author3", "pages3");
+myLibrary.listBooks();
 
 function removeBook(event) {
     const target = event.target;
     if (target.classList.contains('book-remove-button')) {
         const bookId = event.currentTarget.dataset.bookId;
-        removeBookFromArray(bookId);
+        myLibrary.removeBookFromArray(bookId);
         event.currentTarget.remove();
     }
 }
 
-function toggleReadInArray(id) {
-    if (id >= 0 && id < myLibrary.length) {
-        myLibrary[id].haveRead = !(myLibrary[id].haveRead);
-    }
-}
 
 function toggleRead(event) {
     const target = event.target;
     if (target.classList.contains('readLabel')) {
         const bookId = event.currentTarget.dataset.bookId;
-        toggleReadInArray(bookId);
+        myLibrary.toggleReadInArray(bookId);
     }    
 }
 
@@ -134,20 +146,8 @@ function createNewEntry(book) {
     bookEntry.addEventListener('click', toggleRead);
 }
 
-function listBooks() {
-    myLibrary.forEach((book) => {
-        createNewEntry(book);
-        })
-}
-
-function addBook(title, author, pages, hasRead=false) {
-    const newBook = new Book(title, author, pages, hasRead);
-    myLibrary.push(newBook);
-};
-
 function submitNewBook(title, author, pages, hasRead) {
-    const newBook = new Book(title, author, pages, hasRead);
-    addBook(newBook);
+    const newBook = myLibrary.addBook(title, author, pages, hasRead);
     createNewEntry(newBook);
 }
 
@@ -161,8 +161,4 @@ confirmButton.addEventListener('click', (event) => {
     newDialog.close();
 });
 
-addBook("book1withareallylongtitleaaaaaaaaaaaaaaaaaa", "author1", "pages1");
-addBook("book2", "author2", "pages2");
-addBook("book3", "author3", "pages3");
 
-listBooks();
